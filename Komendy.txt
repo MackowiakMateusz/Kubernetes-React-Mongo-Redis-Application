@@ -1,0 +1,6 @@
+pull <nazwa_imaga> -> pobierze image z docker-huba jezeli istnieje
+run <nazwa_imaga> -> sprawdzi czy obraz istneije na komputerze, jezeli nie wyszuka w docker-hubie, jezeli istnieje w docker-hubie, to pobierze
+docker ps -> wyswietla wszystkie aktualnie uruchomione containery
+docker ps -a -> wyswietla wszystkie containery jakie sa pobrane
+docker stop <NAME/CONTAINER ID> -> wylacza container z parametrem NAME z NAMES lub CONTAINER ID, ktory mozna znalesc w docker ps
+docker start <CONTAINER ID/NAME> ->wlacza container z parametrem NAME z NAMES lub CONTAINER ID, ktory mozna znalesc w docker ps
