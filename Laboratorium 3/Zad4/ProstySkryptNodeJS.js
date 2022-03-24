@@ -1,0 +1,1 @@
+console.log("Prosty skrypt nodejs wypisal wlasnie wiadomosc w konsoli po uruchomieniu pliku dockerfile");
