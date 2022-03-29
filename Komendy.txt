@@ -6,3 +6,5 @@ docker stop <NAME/CONTAINER ID> -> wylacza container z parametrem NAME z NAMES l
 docker start <CONTAINER ID/NAME> ->wlacza container z parametrem NAME z NAMES lub CONTAINER ID, ktory mozna znalesc w docker ps
 docker system prune -> usuwa wszystkie nieuruchomione image'e, volume'y niezwiązane z uruchomionymi image'ami
 docker rm <nazwa/id>-> usuwa image
+
+docker build -t <nazwa> <sciezka, np, kropka-> "."> -> buduje skrypt
