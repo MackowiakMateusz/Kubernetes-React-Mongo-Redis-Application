@@ -1,0 +1,16 @@
+docker-compose up
+
+startuje kilka kontenerow, jako serwis
+docker-compose up -d
+
+startuje kilka kontenerow, w detached mode, czyli bez serwisu(100% nie jestem pewny)
+
+docker-compose stop
+
+wylacza te kontenery, co w docker-compose up byly, te z detached mode nie
+
+docker-compose down --volumes   
+
+Usuwa wszystkie containers, networks, volumes, and images, i czysci plik
+compose z tego co jest pod "volumes:"
+po uruchomieniu docker compose up
