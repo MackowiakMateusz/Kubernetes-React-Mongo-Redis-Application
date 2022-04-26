@@ -3,9 +3,10 @@ version: '3'
 services:
   api:
     build:
-      dockerfile: "C:/Users/macko/Desktop/TechnologieChmuroweNadfolder/TechnologieChmurowe/Laboratorium 6/Zad1/backend/dockerfile"
-      context: "C:/Users/macko/Desktop/TechnologieChmuroweNadfolder/TechnologieChmurowe/Laboratorium 6/Zad1/context"
-    environment:
-      - "C:/Users/macko/Desktop/TechnologieChmuroweNadfolder/TechnologieChmurowe/Laboratorium 6/Zad1/backend"
-    ports:
-      - "8000:5000"
+      dockerfile: "C:/Users/macko/Desktop/TechnologieChmuroweNadfolder/TechnologieChmurowe/Laboratorium 6/Zad1/backend/Dockerfile"
+      context: "C:/Users/macko/Desktop/TechnologieChmuroweNadfolder/TechnologieChmurowe/Laboratorium 6/Zad1/backend"
+    environment: 
+      RACK_ENV: development
+      SHOW: 'true'
+      SESSION_SECRET:
+    ports: ["3000:8000"]
