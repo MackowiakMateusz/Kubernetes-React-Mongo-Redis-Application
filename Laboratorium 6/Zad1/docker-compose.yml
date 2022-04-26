@@ -3,9 +3,9 @@ version: '3'
 services:
   api:
     build:
-      dockerfile: "C:/Users/macko/Desktop/TechnologieChmuroweNadfolder/TechnologieChmurowe/Laboratorium 6/backend/dockerfile"
-      context: "C:/Users/macko/Desktop/TechnologieChmuroweNadfolder/TechnologieChmurowe/Laboratorium 6/context"
+      dockerfile: "C:/Users/macko/Desktop/TechnologieChmuroweNadfolder/TechnologieChmurowe/Laboratorium 6/Zad1/backend/dockerfile"
+      context: "C:/Users/macko/Desktop/TechnologieChmuroweNadfolder/TechnologieChmurowe/Laboratorium 6/Zad1/context"
     environment:
-      - "C:/Users/macko/Desktop/TechnologieChmuroweNadfolder/TechnologieChmurowe/Laboratorium 6/backend"
+      - "C:/Users/macko/Desktop/TechnologieChmuroweNadfolder/TechnologieChmurowe/Laboratorium 6/Zad1/backend"
     ports:
       - "8000:5000"
