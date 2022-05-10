@@ -6,3 +6,20 @@ w docker.yml expose zrobic na to co w porcie jest np expose 8000 jak ports: [800
 port tez trzeba zmienic patrzac na jakim porcie projekt slucha, jak nie slucha na 5000 tylko 1234, to np. [8000:1234], albo w projekcie zmienic
 dockera trzeba dodac na tej samej wysokosci co api w docker.yml
 no generalnie udalo sie
+
+Aha, najwazniejsze o czym bym pewnie zapomnial
+Nie tylko port trzeba sprawdzic, ale tez w projektach backendowych zmienic IP z localhosta(127.0.0.1) na IP SIECI DOCKERA
+zeby sprawdzic IP sieci DOCKERA trzeba wpisac najpierw docker network ls
+a pozniej
+docker inspect <id networka>
+i w id networka znalezc "Gateway", NA PRZYKŁAD
+"IPAM": {
+            "Driver": "default",
+            "Options": null,
+            "Config": [
+                {
+                    "Subnet": "172.17.0.0/16",
+                    "Gateway": "172.17.0.1" //<=======================TO
+                }
+            ]
+        },
