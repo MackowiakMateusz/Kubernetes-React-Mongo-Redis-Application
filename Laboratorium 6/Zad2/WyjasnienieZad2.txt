@@ -1,0 +1,8 @@
+Dobra ogarnalem to juz.
+Trzeba tak:
+wejsc w dockerfile projektu i zobaczyc cmd
+wejsc w package.jsona i skonfigurowac script: i tam wsadzic to co w cmd jest
+w docker.yml expose zrobic na to co w porcie jest np expose 8000 jak ports: [8000:5000]
+port tez trzeba zmienic patrzac na jakim porcie projekt slucha, jak nie slucha na 5000 tylko 1234, to np. [8000:1234], albo w projekcie zmienic
+dockera trzeba dodac na tej samej wysokosci co api w docker.yml
+no generalnie udalo sie
