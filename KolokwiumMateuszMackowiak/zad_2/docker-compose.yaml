@@ -1,0 +1,52 @@
+version: '3'
+
+services:
+  moviepostgres:
+    image: 'postgres:14.1-alpine'
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
+    ports:
+      - '5432:5432'
+    volumes: 
+      - moviepostgres:/var/lib/postgresql/data
+    
+  
+  moviebackend:
+    restart: always
+    build:
+      dockerfile: Dockerfile
+      context: ./backend
+    depends_on:
+      - moviepostgres
+    environment:
+      - DATABASE_URI=postgres://user:pass@postgres:5432/moviepostgres?sslmode=disable
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
+      - POSTGRES_HOST=moviepostgres
+      - POSTGRES_PORT=5432
+    networks:
+      - default
+  moviefrontend:
+    build:
+      dockerfile: Dockerfile
+      context: ./client
+    volumes:
+      - /opt/app/node_modules
+
+
+  movienginx:
+    restart: always
+    build:
+      dockerfile: Dockerfile
+      context: ./nginx
+    depends_on:
+      - moviebackend
+    ports:
+      - '9090:80'
+volumes:
+  moviepostgres:
+    driver: local
