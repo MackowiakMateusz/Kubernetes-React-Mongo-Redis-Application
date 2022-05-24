@@ -5,9 +5,9 @@ services:
     image: 'postgres:14.1-alpine'
     restart: always
     environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-      - POSTGRES_DB=postgres
+      - PGUSER=postgres
+      - PGPASSWORD=postgres
+      - PGDATABASE=postgres
     ports:
       - '5432:5432'
     volumes: 
@@ -23,11 +23,11 @@ services:
       - moviepostgres
     environment:
       - DATABASE_URI=postgres://user:pass@postgres:5432/moviepostgres?sslmode=disable
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-      - POSTGRES_DB=postgres
-      - POSTGRES_HOST=moviepostgres
-      - POSTGRES_PORT=5432
+      - PGUSER=postgres
+      - PGPASSWORD=postgres
+      - PGDATABASE=postgres
+      - PGHOST=moviepostgres
+      - PGPORT=5432
     networks:
       - default
   moviefrontend:
