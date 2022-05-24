@@ -8,3 +8,47 @@ docker system prune -> usuwa wszystkie nieuruchomione image'e, volume'y niezwią
 docker rm <nazwa/id>-> usuwa image
 
 docker build -t <nazwa> <sciezka, np, kropka-> "."> -> buduje skrypt
+
+
+wyjasnienie zad 6====================================================================
+Dobra ogarnalem to juz.
+Trzeba tak:
+wejsc w dockerfile projektu i zobaczyc cmd
+wejsc w package.jsona i skonfigurowac script: i tam wsadzic to co w cmd jest
+w docker.yml expose zrobic na to co w porcie jest np expose 8000 jak ports: [8000:5000]
+port tez trzeba zmienic patrzac na jakim porcie projekt slucha, jak nie slucha na 5000 tylko 1234, to np. [8000:1234], albo w projekcie zmienic
+dockera trzeba dodac na tej samej wysokosci co api w docker.yaml
+no generalnie udalo sie
+
+Aha, najwazniejsze o czym bym pewnie zapomnial
+Nie tylko port trzeba sprawdzic, ale tez w projektach backendowych zmienic IP z localhosta(127.0.0.1) na IP SIECI DOCKERA
+zeby sprawdzic IP sieci DOCKERA trzeba wpisac najpierw docker network ls
+a pozniej
+docker inspect <id networka>
+i w id networka znalezc "Gateway", NA PRZYKŁAD
+"IPAM": {
+            "Driver": "default",
+            "Options": null,
+            "Config": [
+                {
+                    "Subnet": "172.17.0.0/16",
+                    "Gateway": "172.17.0.1" //<=======================TO
+                } w nginxie to bedzie 172.17.0.2, .3, .4 itd
+            ]
+        },
+
+expose exposuje tylko dla sieci w ktorej sa kontenery, publish na zewnatrz
+
+command: [sh, -c, "rm -f /data/dump.rdb && redis-server"]  # disable persistence wylacza zapamietywanie danych w bazie danych
+
+to ponizej dodatkowo zapisuje dane
+volumes: 
+      - carpostgres:/var/lib/postgresql/data
+	#najwazniejsze to tutaj wyzej na poczatku dac nazwe bazy danych
+volumes:
+  carpostgres:#<- i tutaj ja powtorzyc
+    driver: local
+
+
+I przede wszystkim, blad z ktorym meczylem sie 6 godzin, jak nie dziala laczenie z baza a powinno, to moze byc z powodu tego ze kontenery
+w zlej kolejnosci sie budowaly. wtedy albo wystarczy kolejnosc zmienic albo petle ktora sie laczy dopoki sie nie polaczy
