@@ -1,0 +1,56 @@
+najpierw wchodze terminalem do directory Zadanie1
+tworze nowy plik tekstowy, zmieniam nazwe na pod.yaml
+wchodze na dokumentacje kubernetes'a i kopiuje example pod'a, bo wlasnie on jest do zadania 1
+wpisuje:
+kubectl apply -f ./pod.yaml 
+no i w dockerze pojawia sie dzialajacy pod
+pobieram index.html z localhost:80 wchodzac w cli poda, tego co ma nazwe sha.... i cos tam
+
+# ls
+bin  boot  dev  etc  home  lib  lib64  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+# cd usr
+# ls
+bin  games  include  lib  local  sbin  share  src
+# cd share
+# ls
+X11          bash-completion  debianutils  dpkg        gdb       libc-bin  menu   pam-configs  terminfo
+adduser      bug              dict         fontconfig  info      lintian   misc   perl5        xml
+base-files   common-licenses  doc          fonts       java      locale    nginx  pixmaps      zoneinfo
+base-passwd  debconf          doc-base     gcc-6       keyrings  man       pam    tabset
+# cd nginx
+# ls
+html
+# cd html
+# ls
+50x.html  index.html
+# nano index.html
+/bin/sh: 17: nano: not found
+# ls index.html
+index.html
+# cat index.html
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to nginx!</title>
+<style>
+    body {
+        width: 35em;
+        margin: 0 auto;
+        font-family: Tahoma, Verdana, Arial, sans-serif;
+    }
+</style>
+</head>
+<body>
+<h1>Welcome to nginx!</h1>
+<p>If you see this page, the nginx web server is successfully installed and
+working. Further configuration is required.</p>
+
+<p>For online documentation and support please refer to
+<a href="http://nginx.org/">nginx.org</a>.<br/>
+Commercial support is available at
+<a href="http://nginx.com/">nginx.com</a>.</p>
+
+<p><em>Thank you for using nginx.</em></p>
+</body>
+</html>
+#
