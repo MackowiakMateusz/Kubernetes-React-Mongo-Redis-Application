@@ -1,0 +1,158 @@
+body{
+  background-color: rgb(116, 255, 146);
+  font-size: large;
+  font-weight: bold;
+}
+.Link
+{
+  display: inline-block;
+  text-decoration: none;
+  color: black;
+  font-weight: 900;
+  width: 100%;
+  height: 100%;
+}
+.LinkDiv
+{
+  margin-left: 35%;
+  margin-right: 35%;
+  border: solid;
+  background-color: brown;
+  width: 30%;
+}
+.MenuButton:hover
+{
+  background-color: rgb(58, 15, 15);
+}
+.MenuButton:active
+{
+  background-color: rgb(255, 0, 0);
+}
+.LinkDiv:hover
+{
+  background-color: rgb(58, 15, 15);
+}
+.LinkDiv:active
+{
+  background-color: rgb(255, 0, 0);
+}
+.MenuButton
+{
+  cursor: pointer;
+  font-size: 20px;
+  border: solid;
+  background-color: brown;
+  color: black;
+  font-weight: bold;
+}
+img
+{
+  width: 30%;
+  height: auto;
+}
+.MenuButton:hover
+{
+  background-color: rgb(58, 15, 15);
+}
+.MenuButton:active
+{
+  background-color: rgb(255, 0, 0);
+}
+.cartDiv{
+  background-color: rgb(255, 145, 0);
+  width: 70%;
+  margin-left: 15%;
+  margin-right: 15%;
+  border: solid;
+  margin-bottom: 20px;
+}
+.cartDetailsDiv{
+  background-color: rgb(255, 227, 191);
+  width: 100%;
+  border: solid;
+  font-size: 50px;
+}
+.voiceActorDiv{
+  background-color: burlywood;
+  width: 70%;
+  margin-left: 15%;
+  margin-right: 15%;
+  border: solid;
+  margin-bottom: 20px;
+}
+.voiceActorDetailsDiv{
+  background-color: burlywood;
+  width: 100%;
+  border: solid;
+  font-size: 50px;
+}
+.animeDiv{
+  background-color: rgb(148, 113, 180);
+  width: 70%;
+  margin-left: 15%;
+  margin-right: 15%;
+  border: solid;
+  margin-bottom: 20px;
+}
+.animeDetailsDiv{
+  background-color: rgb(148, 113, 180);
+  width: 100%;
+  border: solid;
+  font-size: 50px;
+}
+.voiceActorAddFormDiv
+{
+  background-color: rgb(148, 123, 91);
+  width: 70%;
+  margin-left: 15%;
+  margin-right: 15%;
+  border: solid;
+  margin-bottom: 20px;
+}
+.animeAddFormDiv
+{
+  background-color: rgb(172, 82, 255);
+  width: 70%;
+  margin-left: 15%;
+  margin-right: 15%;
+  border: solid;
+  margin-bottom: 20px;
+}
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

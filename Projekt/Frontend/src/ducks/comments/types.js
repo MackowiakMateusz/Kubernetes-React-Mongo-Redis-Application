@@ -1,0 +1,13 @@
+const COMMENT__GET_LIST = 'COMMENT__GET_LIST';
+const COMMENT_CREATE = 'COMMENT_CREATE';
+const COMMENT_EDIT = 'COMMENT_EDIT';
+const COMMENT_DELETE = 'COMMENT_DELETE';
+
+const types = {
+    COMMENT__GET_LIST,
+    COMMENT_CREATE,
+    COMMENT_EDIT,
+    COMMENT_DELETE
+};
+
+export default types;
