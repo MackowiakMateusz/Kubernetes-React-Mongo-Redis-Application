@@ -38,7 +38,7 @@ const CommentList = ({history, comments, getCommentList, editComment,deleteComme
                         {comment.value!==undefined&&<div>Value of Comment: {comment.value}</div>}
                         {comment!==undefined&&<div>Comment({comment[0]}): {comment[1]}</div>}
                         <div>
-                            <button className="MenuButton" onClick={()=>{deleteComment(comment[0]);history.push('/redis')}}>Delete This Comment</button>
+                            <button className="MenuButton" onClick={()=>{deleteComment(comment[0]);window.location.reload(false);}}>Delete This Comment</button>
                         </div>
                     </div>)
                     })
