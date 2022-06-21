@@ -16,8 +16,8 @@ app.use('/voiceActors', voiceActors);
 
 require('dotenv').config();
 const dbConnData = {
-    host: process.env.MONGO_HOST || '127.0.0.1',
-    port: process.env.MONGO_PORT || 27017,
+    host: process.env.MONGO_HOST || 'localhost',//'127.0.0.1',
+    port: process.env.MONGO_PORT || 27017,//27017,
     database: process.env.MONGO_DATABASE || 'animeApi'
 };
 // Łączymy się z bazą i „stawiamy” serwer API
@@ -26,14 +26,14 @@ const dbConnData = {
 const mongoose = require('mongoose');
 
 mongoose
-  .connect(process.env.MONGO_URL, {//`mongodb://${dbConnData.host}:${dbConnData.port}/${dbConnData.database}`
+  .connect(`mongodb://adminuser:password123@${dbConnData.host}:${dbConnData.port}/${dbConnData.database}`, {//`mongodb://${dbConnData.host}:${dbConnData.port}/${dbConnData.database}`
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify:true
   })
   .then(response => {
     console.log(`Connected to MongoDB. Database name: "${response.connections[0].name}"`)
-    const port = process.env.PORT || 5000
+    const port = process.env.PORT || 5001
     app.listen(port, () => {
       console.log(`API server listening at http://localhost:${port}`);
     });

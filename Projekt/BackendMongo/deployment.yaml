@@ -1,0 +1,28 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: mongoexpress
+spec:
+  replicas: 1 #2 bo kopia zapasowa
+  selector:
+    matchLabels:
+      app: mongoexpress
+  template:
+    metadata:
+      labels:
+        app: mongoexpress
+    spec:
+      containers:
+        - name: mongoexpress
+          image: mongoexpress #localhost:5001/mongoexpress
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 5001
+        - image: mongo
+          name: mongo-client
+          env:
+          - name: mongo-client_INITDB_ROOT_USERNAME
+            value: 'dummy'
+          - name: mongo-client_INITDB_ROOT_PASSWORD
+            value: 'dummy'
+      restartPolicy: Always

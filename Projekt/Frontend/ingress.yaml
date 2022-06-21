@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-frontend
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /(.*)
+            pathType: Prefix
+            backend:
+              service:
+                port:
+                  number: 80
+                name: hello
+    - http:
+        paths:
+          - path: /(.*)
+            pathType: Prefix
+            backend:
+              service:
+                port:
+                  number: 5000
+                name: mongoexpress

@@ -1,0 +1,13 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: mongoexpress
+spec:
+  type: NodePort
+  ports:
+    - port: 5001
+      targetPort: 5001
+      protocol: TCP
+      nodePort: 31001
+  selector:
+    app: mongoexpress

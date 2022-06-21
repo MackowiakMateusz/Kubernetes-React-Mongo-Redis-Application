@@ -3,7 +3,7 @@ apiVersion: apps/v1
 metadata:
   name: hello
 spec:
-  replicas: 2
+  replicas: 2 #2 bo kopia zapasowa
   selector:
     matchLabels:
       app: hello
