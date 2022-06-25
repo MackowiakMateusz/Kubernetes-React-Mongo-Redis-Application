@@ -15,6 +15,6 @@ const voiceActorSchema = new Schema({
         }
       ]
     
-},{collection: 'voiceActorApi'});
+},{collection: 'mongo'});
 
 module.exports = model('VoiceActor', voiceActorSchema);

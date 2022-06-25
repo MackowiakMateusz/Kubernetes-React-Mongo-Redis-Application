@@ -16,6 +16,6 @@ const animeSchema = new Schema({
           ref: "VoiceActor"
         }
       ]
-},{collection: 'animeApi'});
+},{collection: 'mongo'});
 
 module.exports = model('Anime', animeSchema);
