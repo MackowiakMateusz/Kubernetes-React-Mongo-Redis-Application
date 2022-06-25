@@ -3,7 +3,7 @@ apiVersion: apps/v1
 metadata:
   name: mongoexpress
 spec:
-  replicas: 1 #2 bo kopia zapasowa
+  replicas: 1 
   selector:
     matchLabels:
       app: mongoexpress
@@ -14,15 +14,19 @@ spec:
     spec:
       containers:
         - name: mongoexpress
-          image: mongoexpress #localhost:5001/mongoexpress
+          image: localhost:5000/mongoexpress
           imagePullPolicy: Always
           ports:
             - containerPort: 5001
-        - image: mongo
-          name: mongo-client
           env:
-          - name: mongo-client_INITDB_ROOT_USERNAME
-            value: 'dummy'
-          - name: mongo-client_INITDB_ROOT_PASSWORD
-            value: 'dummy'
+            - name: MONGO_DATABASE
+              value: mongo
+            - name: MONGO_HOST
+              value: mongo-nodeport-svc
+            - name: MONGO_PORT
+              value: "27017"
+            - name: MONGO_USER
+              value: adminuser
+            - name: MONGO_PASSWORD
+              value: password123
       restartPolicy: Always

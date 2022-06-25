@@ -12,7 +12,7 @@ spec:
               service:
                 port:
                   number: 80
-                name: hello
+                name: reactfrontend
     - http:
         paths:
           - path: /(.*)
@@ -20,5 +20,5 @@ spec:
             backend:
               service:
                 port:
-                  number: 5000
+                  number: 5001
                 name: mongoexpress

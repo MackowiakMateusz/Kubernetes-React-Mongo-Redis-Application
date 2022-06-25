@@ -1,20 +1,20 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  name: hello
+  name: reactfrontend
 spec:
   replicas: 2 #2 bo kopia zapasowa
   selector:
     matchLabels:
-      app: hello
+      app: reactfrontend
   template:
     metadata:
       labels:
-        app: hello
+        app: reactfrontend
     spec:
       containers:
-        - name: hello
-          image: localhost:5000/hello
+        - name: reactfrontend
+          image: localhost:5000/reactfrontend
           imagePullPolicy: Always
           ports:
             - containerPort: 80
