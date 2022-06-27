@@ -1,7 +1,9 @@
 apiVersion: v1
 kind: Service
+  annotations:
+    cloud.google.com/neg: '{"ingress": true}'
 metadata:
-  name: server-cluster-ip-service
+  name: server-mongo-cluster-ip-service
 spec:
   type: ClusterIP
   selector:

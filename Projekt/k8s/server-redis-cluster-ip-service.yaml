@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+  annotations:
+    cloud.google.com/neg: '{"ingress": true}'
+metadata:
+  name: server-redis-cluster-ip-service
+spec:
+  type: ClusterIP
+  selector:
+    component: server-redis
+  ports:
+    - port: 5001
+      targetPort: 5001

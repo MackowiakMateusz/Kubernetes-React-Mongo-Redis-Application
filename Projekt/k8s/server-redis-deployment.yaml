@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: server-redis-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: server-redis
+  template:
+    metadata:
+      labels:
+        component: server-redis
+    spec:
+      containers:
+        - name: server-redis
+          image: darkstaron/redisexpress
+          ports:
+            - containerPort: 5001
+          env:
+            - name: REDIS_PORT
+              value: "6379"
+            - name: REDIS_HOST
+              value: redis-cluster-ip-service

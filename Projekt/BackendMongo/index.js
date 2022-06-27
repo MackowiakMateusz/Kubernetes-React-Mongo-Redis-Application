@@ -5,11 +5,9 @@ const voiceActors = require('./routes/voiceActors');
 const cors = require('cors')
 const corsOptions = {
   origin: '*',
-  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  preflightContinue: true,
   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204 
 }
-app.use(cors(corsOptions));
+app.use(cors(corsOptions));//cors(corsOptions)
 app.use(express.json());
 
 // „Podłączamy” obsługę „endpointów”, które zdefiniowaliśmy dla kolekcji 'animes' w katalogu routes/animes.js

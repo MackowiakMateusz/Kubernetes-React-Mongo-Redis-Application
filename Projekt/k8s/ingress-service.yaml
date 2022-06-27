@@ -6,21 +6,55 @@ metadata:
     kubernetes.io/ingress.class: "nginx"
     nginx.ingress.kubernetes.io/use-regex: "true"
     nginx.ingress.kubernetes.io/rewrite-target: /$1
+    nginx.ingress.kubernetes.io/default-backend: ingress-nginx-controller
+    nginx.ingress.kubernetes.io/service-upstream: "true"
+    ## tells ingress to check for regex in the config file
+    #nginx.ingress.kubernetes.io/use-regex: "true"
+    #nginx.ingress.kubernetes.io/configuration-snippet: |
+    #  add_header Access-Control-Allow-Origin "*";
+    #  add_header Access-Control-Allow-Methods "POST, GET, OPTIONS";
+    #  add_header Access-Control-Allow-Credentials true;
+    #nginx.ingress.kubernetes.io/enable-cors: "false"
+    #nginx.ingress.kubernetes.io/cors-origins: "http://localhost/*"
+    #nginx.ingress.kubernetes.io/cors-allow-methods: "PUT, GET, POST, OPTIONS"
 spec:
   rules:
     - http:
         paths:
-          - path: /?(.*)
+          - path: /(.*)
             pathType: Prefix
             backend:
               service:
                 name: client-cluster-ip-service
                 port:
                   number: 80
-          #- path: /api/?(.*)
+          - path: /apiMongo/?(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: server-mongo-cluster-ip-service
+                port:
+                  number: 5000
+          - path: /apiRedis/?(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: server-redis-cluster-ip-service
+                port:
+                  number: 5001
+
+          #do testowania czy kontenery dzialaja na portach
+          #- path: /containerRedis/?(.*)
           #  pathType: Prefix
           #  backend:
           #    service:
-          #      name: server-cluster-ip-service
+          #      name: redis-cluster-ip-service
           #      port:
-          #        number: 5000
+          #        number: 6379
+          #- path: /containerMongo/?(.*)
+          #  pathType: Prefix
+          #  backend:
+          #    service:
+          #      name: mongo-service
+          #      port:
+          #        number: 27017

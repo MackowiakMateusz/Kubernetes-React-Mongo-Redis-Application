@@ -18,4 +18,13 @@ spec:
           imagePullPolicy: Always
           ports:
             - containerPort: 80
+          env:
+            - name: MONGO_HOST
+              value: server-mongo-cluster-ip-service
+            - name: MONGO_PORT
+              value: "5000"
+            - name: REDIS_HOST
+              value: server-redis-cluster-ip-service
+            - name: REDIS_PORT
+              value: "5001"
       restartPolicy: Always
