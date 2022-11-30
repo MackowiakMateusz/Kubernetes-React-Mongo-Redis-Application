@@ -41,12 +41,18 @@ every file separately, in according order:<br />
 2. kubectl apply -f mongo-pvc.yaml
 3. kubectl apply -f redis-config-map.yaml
 4. kubectl apply -f mongo-secrets.yaml
-afterwards apply all deployment files:<br />
-kubectl apply -f ...-deployment.yaml
-and then apply all cluster-ip service files:<br />
-kubectl apply -f ...-service.yaml
-At the end, install nginx-ingress-controller from official kubernetes site, and:<br />
-kubectl apply -f ingress-service.yaml
+5. afterwards apply all deployment and service files:<br />
+First there should be deployed both mongo and redis database containers. <br />
+Then their cluster-ip services.<br />
+Then both mongo nad redis server deployments.<br />
+Then both mongo and reds server cluster ip services.<br />
+Then client deployment<br />
+Then client service<br />
+6. At the end, install nginx-ingress-controller from official kubernetes site, and:<br />
+kubectl apply -f ingress-service.yaml<br />
+
+6. Alternative
+If, ingress doesn't work, change client cluster-ip service to loadbalancer or nodeport service by changing field in .yaml file, and deploy it like that.
 
 ## Effect
 * There should be following Ingress routes:
